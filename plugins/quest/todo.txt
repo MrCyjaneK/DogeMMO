@@ -1,0 +1,3 @@
+Translate quests
+   - All informations that are hardcoded
+   - Every quest text.

@@ -1,0 +1,4 @@
+pip install mysql-to-sqlite3
+mysql2sqlite -f db.dev.sql -d dogemmo -u dogemmo -p password123 -f new.sqlite3.sql -h mrcyjanek.net
+
+php forDevs/phpDocumentor.phar -t docs -d inc --cache-folder="cache"; rm -rf cache

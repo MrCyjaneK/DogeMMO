@@ -1,0 +1,10 @@
+For in game strings use:
+MENU->SUBMENU->ETC
+
+for global info us
+ERR_SOME_SHIT_HAPPENED
+
+NO SPACES, only A-Z a-z 0-9 and _,-,>
+
+
+DON'T TRANSLATA ITEM NAMES (yet)

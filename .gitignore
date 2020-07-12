@@ -1,0 +1,8 @@
+db.php
+db.production.php
+db.dev.db
+cur.php
+config.json
+phpDocumentor.phar
+docs
+translation/
