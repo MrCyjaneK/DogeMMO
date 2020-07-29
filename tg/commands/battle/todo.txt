@@ -1,0 +1,2 @@
+Fix maths, make more quest-like texts (less verbose)
+DO THE SAME AT WEB VERSION!!!

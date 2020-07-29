@@ -9,9 +9,9 @@
     ?></p>
     <?php
     $quests = $db->prepare("SELECT * FROM `quests`");
+    $quests->execute();
     $quests = $quests->fetchAll();
     foreach ($quests as $quest) {
-        ver_dump($quests);
         if ($quest["minlvl"] <= $user->lvl) {
             //$strtosend =
             //    "<b>Name:</b> " .
@@ -24,14 +24,14 @@
             //    $quest['ID'];
             echo '<a style="width:100%" href="' . WEB . '/game.php?action=quest/view&id=' .
                 $quest['ID'] .
-                //'" class="bc-bot-open-btn">' .
+                '">' .
                 $quest['name'] .
                 ' (' .
                 $quest['minutes'] .
-                'm)</a>';
+                'm)</a><br />';
         }
     }
     ?>
-    <a style="width:100%" href="<?= WEB; ?>/game.php?action=start" class="bc-bot-open-btn"<?= gs('Go back') ?></a>
+    <a style="width:100%" href="<?= WEB; ?>/game.php?action=start"><?= gs('Go back') ?></a>
   </div>
 </section>

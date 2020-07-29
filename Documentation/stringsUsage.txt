@@ -1,0 +1,13 @@
+Every part of game should use 'gs' function (previously 'getString')
+ ---------------------------------------------
+ - Previously I've had similar approach like -
+ - android apps do in in strings.xml         -
+ - action_go_back would return 'Go Back'in   -
+ - english and 'Powrót' in Polish.           -
+ ---------------------------------------------
+
+But now I've decided to use something else.
+Simply use gs('Go Back') and then. This will
+be much cleaner for translators and developers
+to use this.
+

@@ -19,7 +19,8 @@
         "<br />",
         htmlspecialchars(print_r($_SERVER, 1))
     ); ?></p>
-    <a href="/game.php?action=debug" class="bc-bot-open-btn">Refresh</a>
-    <a href="/game.php" class="bc-bot-open-btn">Go Home</a>
+    <a href="<?= WEB ?>/game.php?action=debug">Refresh</a>
+    <a href="<?= WEB ?>/game.php?action=debug/test">Tests</a>
+    <a href="<?= WEB ?>/game.php">Go Home</a>
   </div>
 </section>

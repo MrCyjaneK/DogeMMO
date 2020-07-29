@@ -1,21 +1,22 @@
 ==== Error handling
 For errors that are 'soft', you can use following format, simply redirect to this url:
-https://dogemmo.mrcyjanek.net/inc/soft_error.php?e=URL ENCODED MESSAGE
+<?= WEB ?>/inc/soft_error.php?e=URL ENCODED MESSAGE
+
 For critical errors that shouldn't happen if user act normally, use this:
-https://dogemmo.mrcyjanek.net/inc/error.php?e=URL ENCODED MESSAGE
+<?= WEB ?>/inc/error.php?e=URL ENCODED MESSAGE
 NOTE: This will also kill session and re-login will be needed.
 
 example php code that handle error:
 
 <?php
-
+// Keep in mind that this code won't work in any of plugins/* because content is already sent to browser. So better use meta tag of js to redirect
 if (isset($error_message)) {
-    echo "<script>window.location.href='https://dogemmo.mrcyjanek.net/inc/soft_error.php?e=".urlencode($error_message)."'</script>";
+    header('Location: '.WEB.'/inc/soft_error.php?e=error');
     die();
 }
-
+?>
 ==== Exception handling.
 
-For excaptions use strings, like:
+For exceptions use strings, like:
 throw new Exception('404|not found');
 Where part before | is error code.

@@ -3,14 +3,11 @@ session_name('st34lm3');
 session_start();
 include getcwd() . '/inc/config.php';
 include getcwd() . '/inc/translation.php';
-include getcwd() . '/inc/strings.php'; // deprecated
 include getcwd() . '/inc/db.php';
-$config = $db->prepare("SELECT * FROM `botconfig` WHERE token=:token");
-$config->bindParam(":token", $token);
-$config->execute();
-$config = $config->fetchObject();
-include getcwd() . "/inc/top.php";
 include getcwd() . "/inc/class.php";
+if ($_SESSION == []) {
+    header('Location: '.WEB.'/login.php');
+}
 try {
     switch ($_SESSION['version']) {
         case '1':
@@ -54,6 +51,7 @@ if (file_exists(getcwd() . $plugin)) {
 <!DOCTYPE html>
 <html>
   <head>
+    <?php include getcwd() . "/inc/top.php"; ?>
     <meta charset="utf-8">
     <title>DogeMMO</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
@@ -62,7 +60,7 @@ if (file_exists(getcwd() . $plugin)) {
   <body style="max-width: 650px">
     <?php
     function n($n) { return $n; } // Don't ask
-    include getcwd() . "/inc/notif.php";
+    //include getcwd() . "/inc/notif.php";
     include getcwd() . $plugin;
     ?>
   </body>

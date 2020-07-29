@@ -1,0 +1,2 @@
+instead of commands /team_1
+use buttons

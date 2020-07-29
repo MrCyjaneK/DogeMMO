@@ -1,6 +1,6 @@
-<section class="bc-main">
-    <div class="bc-main-content">
-    <img src="/img/dogecoin.svg" width="102" height="102">
+<section>
+    <div>
+    <img class="center" src="<?= WEB ?>/img/dogecoin.svg" width="256" height="256">
     <h1><?= gs('Quests'); ?></h1>
     <?php
     $qid = $_GET['id'];
@@ -26,15 +26,14 @@
                 $info = gs("You are too busy with different adventure.");
             } else {
                 $newquest = $db->prepare(
-                    "INSERT INTO `active_quests`(`quest_id`, `user_id`, `timestarted`, `isweb`, `token`) VALUES (:quest_id, :user_id, :timestarted, 1, :token)"
+                    "INSERT INTO `active_quests`(`quest_id`, `user_id`, `timestarted`, `isweb`) VALUES (:quest_id, :user_id, :timestarted, 1)"
                 );
-                $newquest->bindParam(":token", $token);
                 $newquest->bindParam(":quest_id", $qid);
                 $newquest->bindParam(":user_id", $user->ID);
                 $now = time();
                 $newquest->bindParam(":timestarted", $now);
                 $newquest->execute();
-                $info = gs("You have went to ") . $quest['name'];
+                $info = gs("You have went to") . " " . $quest['name'];
             }
         } else {
             $info = gs("I don't know where have you got that command, but it's not going to work because you need to have higher level.");
@@ -42,6 +41,6 @@
     }
     echo str_replace("\n", "<br />", htmlspecialchars(print_r($info, 1)));
     ?>
-    <a style="width:100%" href="/game.php?action=start" class="bc-bot-open-btn"><?= gs('Go back') ?></a>
+    <a style="width:100%" href="<?= WEB ?>/game.php?action=start" class="bc-bot-open-btn"><?= gs('Go back') ?></a>
   </div>
 </section>

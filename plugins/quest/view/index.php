@@ -1,6 +1,6 @@
-<section class="bc-main">
-    <div class="bc-main-content">
-    <img src="/img/dogecoin.svg" width="102" height="102">
+<section>
+    <div>
+    <img class="center" src="<?= WEB ?>/img/dogecoin.svg" width="256" height="256">
     <h1><?= gs('Quests'); ?></h1>
     <?php
     $qid = $_GET['id'];

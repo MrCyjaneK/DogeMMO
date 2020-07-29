@@ -108,17 +108,19 @@ class user {
       *
       */
     private $version;
+
     /**
       * List of allowed keys to be saved in updateDb and save function, set in __construct
       */
     private $allowed_keys;
+
     /**
       * Construct user object.
       *
       * @param int userid for version=1 it is telegram_id (depreacted) and for version=2 it's ID
-      * @param int version 1 for telegram_id and 2 for ID
+      * @param int version 1 for telegram_id, 2 and 3 for ID
       */
-    public function __construct($userid, $version=1) {
+    public function __construct($userid, $version=3) {
         // Step 1, declare database
         include getcwd() . '/inc/db.php';
         $this->db = $db;
@@ -235,13 +237,37 @@ class user {
     /**
       * Display notification in user's notification section.
       *
-      * @todo it's not not working at all.
-      *
       * @param string $title Title of message
       * @param mixed[] $message content of message, can be any type, it will be stringified.
       */
     public function pushNotification($title,$message) {
+        $message = print_r($message,1);
+        $insert = $this->db->prepare("INSERT INTO `user_notifications`(`user_id`, `title`, `message`) VALUES (:user_id, :title, :message)");
+        $insert->bindParam(":user_id", $this->ID);
+        $insert->bindParam(":title", $title);
+        $insert->bindParam(":message", $message);
+        $insert->execute();
+        return 0;
+    }
 
+    /**
+      * Returns array of all notifications.
+      *
+      * @param string $type
+      * @return array[] of notifications
+      */
+    public function notifications($type = 'all') {
+         // TODO: Add some limit, like from only last week, or last 25 notifications.
+         if ($type == 'all') {
+             $notifications = $this->db->prepare("SELECT * FROM `user_notifications` WHERE `user_id`=:user_id");
+         } else if ($type == 'unread') {
+             $notifications = $this->db->prepare("SELECT * FROM `user_notifications` WHERE `user_id`=:user_id AND `isread`=0");
+         } else {
+             throw new Error('001|Unknown method');
+         }
+         $notifications->bindParam(':user_id', $this->ID);
+         $notifications->execute();
+         return $notifications->fetchAll();
     }
     /**
       * Update user data in database, check example

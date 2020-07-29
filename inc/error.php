@@ -4,6 +4,9 @@ if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 session_destroy();
+if (!isset($e)) {
+    $e = $_GET['e'];
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -14,7 +17,7 @@ session_destroy();
     <link rel="stylesheet" href="<?= WEB ?>/styles.css">
   </head>
   <body>
-    <img class="center" src="<?= WEB ?>/img/sad.svg" width="102" height="102">
+    <img class="center" src="<?= WEB ?>/img/sad.svg" width="256" height="256">
     <h1>Error</h1>
     <p><?php echo str_replace(
         "\n",

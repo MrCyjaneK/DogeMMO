@@ -1,0 +1,1 @@
+Make list of top playeres, simple SQL query and parsing should be enough

@@ -47,7 +47,4 @@ $strings = [
         "name" => "⚔️ The Big War"
     ]
 ];
-
-#the next line is not needed cyjan or is it??
-#Encoding then decoding it again
 $strings = json_decode(json_encode($strings));
