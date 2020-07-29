@@ -3,7 +3,7 @@ $host = 'localhost';
 $user = 'dogemmo';
 $pass = '1234567';
 $name = 'dogemmo';
-if (isset(MAKE_MYSQLI_PLEASE)) {
+if (defined('MAKE_MYSQLI_PLEASE')) {
     $db = new mysqli($host,$user,$pass,$name);
 } else {
     $db = NEW PDO("mysql:host=$host;dbname=$name", "$user", "$pass");
