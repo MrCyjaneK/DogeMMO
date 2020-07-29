@@ -2,10 +2,19 @@
 
 Work in progress, come to @Chat_With_Cyjan or @EarnWalletChat on telegram to help.
 
-To run local version do:
+# Instalation
 
-```php forDevs/initlocal.php```
+To install dogemmo on production server you need to install
+ 
+ * PHP-7.4
+ * MySQL (sqlite3 work in progress)
+ * Nginx as webserver
 
-Before commit run: 
+Then you need to clone this repository somewhere, it is fine to run in subdirectory.
 
-```php forDevs/codecheck.php```
+Then adjust following files:
+ 
+ * inc/config.php
+ * config.json (copy config.example.json)
+ * inc/db.production.php (see db.production.example.php) || forDevs/db.dev.php not really works.
+ * Import forDevs/db.scheme.sql to database
