@@ -1,6 +1,7 @@
 <?php
 $t = [];
 function gs($text, $language = 'undefined') {
+    if (empty($text)) return '$text is empty';
     global $t;
     if ($language == 'undefined') {
         global $user;
