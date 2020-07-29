@@ -1,16 +1,16 @@
 # DogeMMO - From classic OldPC series.
 
-Work in progress, come to @Chat_With_Cyjan or @EarnWalletChat on telegram to help.
+Work in progress, come to @Chat_With_Cyjan, or @EarnWalletChat on telegram to help.
 
-# Instalation
+# Installation
 
-To install dogemmo on production server you need to install
+To install dogemmo on the production server you need to install
  
  * PHP-7.4
  * MySQL (sqlite3 work in progress)
- * Nginx as webserver
+ * Nginx as the webserver
 
-Then you need to clone this repository somewhere, it is fine to run in subdirectory.
+Then you need to clone this repository somewhere, it is fine to run in a subdirectory.
 
 Then adjust following files:
  
