@@ -1,9 +1,14 @@
 <?php
-$token = '690195901';
-$db = NEW PDO("mysql:host=localhost;dbname=dogemmo", "dogemmo", "");
-$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-$db->query("SET NAMES 'utf8mb4'");
-function n($n) {
-  return number_format($n, 8, '.', '');
+$host = 'localhost';
+$user = 'dogemmo';
+$pass = '1234567';
+$name = 'dogemmo';
+if (isset(MAKE_MYSQLI_PLEASE)) {
+    $db = new mysqli($host,$user,$pass,$name);
+} else {
+    $db = NEW PDO("mysql:host=$host;dbname=$name", "$user", "$pass");
+    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $db->query("SET NAMES 'utf8mb4'");
 }
+unset($host,$user,$pass,$name);
 ?>
